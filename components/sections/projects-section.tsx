@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function ProjectsSection() {
   const projects = [
@@ -50,66 +51,85 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="py-20 px-4">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-orbitron mb-4">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">A showcase of my recent work and personal projects</p>
-        </div>
+        <ScrollReveal direction="up" delay={100}>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold font-orbitron mb-4">
+              Featured <span className="text-gradient">Projects</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              A showcase of my recent work and personal projects
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <Card
-              key={index}
-              className={`glassmorphism border-white/10 hover:border-cyan-400/50 transition-all duration-300 group ${
-                project.featured ? "lg:col-span-1" : ""
-              }`}
-            >
-              <CardHeader className="p-0">
-                <div className="relative h-48 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 rounded-t-lg overflow-hidden">
-                  <div className="absolute inset-0 bg-black/20" />
-                  <div className="absolute bottom-4 left-4">
-                    {project.featured && <Badge className="bg-cyan-500 text-black">Featured</Badge>}
+            <ScrollReveal key={index} direction={index % 2 === 0 ? "left" : "right"} delay={200 + index * 150}>
+              <Card
+                className={`glassmorphism border-white/10 hover:border-cyan-400/50 transition-all duration-500 group transform hover:scale-105 ${
+                  project.featured ? "lg:col-span-1" : ""
+                }`}
+              >
+                <CardHeader className="p-0">
+                  <div className="relative h-48 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 rounded-t-lg overflow-hidden">
+                    <div className="absolute inset-0 bg-black/20" />
+                    <div className="absolute bottom-4 left-4">
+                      {project.featured && <Badge className="bg-cyan-500 text-black animate-pulse">Featured</Badge>}
+                    </div>
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="text-xl mb-3 group-hover:text-cyan-400 transition-colors">
-                  {project.title}
-                </CardTitle>
-                <p className="text-gray-400 mb-4 line-clamp-3">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="bg-slate-800 text-gray-300">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-                <div className="flex gap-4">
-                  <Button size="sm" className="bg-cyan-500 hover:bg-cyan-600 text-black">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
-                  </Button>
-                  <Button size="sm" variant="outline" className="border-gray-600">
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <CardTitle className="text-xl mb-3 group-hover:text-cyan-400 transition-colors">
+                    {project.title}
+                  </CardTitle>
+                  <p className="text-gray-400 mb-4 line-clamp-3">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.map((tech, techIndex) => (
+                      <Badge
+                        key={tech}
+                        variant="secondary"
+                        className="bg-slate-800 text-gray-300 hover:bg-slate-700 transition-colors"
+                        style={{ animationDelay: `${techIndex * 100}ms` }}
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="flex gap-4">
+                    <Button
+                      size="sm"
+                      className="bg-cyan-500 hover:bg-cyan-600 text-black transform hover:scale-105 transition-all duration-300"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Live Demo
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-gray-600 transform hover:scale-105 transition-all duration-300"
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      Code
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black"
-          >
-            <Github className="w-5 h-5 mr-2" />
-            View All Projects on GitHub
-          </Button>
-        </div>
+        <ScrollReveal direction="up" delay={600}>
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transform hover:scale-105 transition-all duration-300"
+            >
+              <Github className="w-5 h-5 mr-2" />
+              View All Projects on GitHub
+            </Button>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )

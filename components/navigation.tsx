@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Code, Home, User, Briefcase, FolderOpen, Mail } from "lucide-react"
+import { Menu, X, Code, Home, User, Briefcase, FolderOpen, Mail, GraduationCap } from "lucide-react"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,6 +22,7 @@ export function Navigation() {
     { href: "#skills", label: "Skills", icon: Code },
     { href: "#projects", label: "Projects", icon: FolderOpen },
     { href: "#experience", label: "Experience", icon: Briefcase },
+    { href: "#education", label: "Education", icon: GraduationCap },
     { href: "#contact", label: "Contact", icon: Mail },
   ]
 
