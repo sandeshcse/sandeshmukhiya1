@@ -46,7 +46,7 @@ export function AboutSection() {
           <ScrollReveal direction="left" delay={200}>
             <div className="space-y-6">
               <div className="relative w-80 h-80 mx-auto rounded-2xl overflow-hidden transform hover:scale-105 transition-transform duration-500">
-                <Image src="/images/hero-image.jpg" alt="Sandesh Mukhiya" fill className="object-cover object-center" />
+                <Image src="/img2.jpg" alt="Sandesh Mukhiya" fill className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               </div>
             </div>
@@ -57,22 +57,18 @@ export function AboutSection() {
               <h3 className="text-2xl md:text-3xl font-bold">Software Engineer & Full-Stack Developer</h3>
               <div className="space-y-4 text-gray-300">
                 <p>
-                  I'm Sandesh Mukhiya, a passionate software engineer with expertise in full-stack development. I love
-                  creating innovative solutions and building applications that make a difference in people's lives.
+                  I'm Sandesh Mukhiya, a passionate computer science student with a knack for web development and design. I'm proficient in programming languages like C, C++, Python, and SQL. As a fast learner, I'm always eager to expand my knowledge and tackle new challenges in the ever-evolving world of technology.
                 </p>
                 <p>
-                  My journey in technology has been driven by curiosity and a desire to solve complex problems. I
-                  specialize in modern web technologies and enjoy working on projects that challenge me to grow and
-                  learn new skills.
+                  Currently pursuing my Diploma in Computer Science Engineering at Quantum University Roorkee, India, I specialize in web development and enjoy working on projects that challenge me to grow and learn new skills.
                 </p>
                 <p>
-                  When I'm not coding, I'm exploring new technologies, contributing to open-source projects, and sharing
-                  knowledge with the developer community.
+                  When I'm not coding, I'm exploring new technologies, contributing to open-source projects, and sharing knowledge with the developer community.
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {["React", "Next.js", "TypeScript", "Node.js", "Python", "AWS"].map((tech, index) => (
+                {["HTML", "CSS", "C/C++", "SQL", "Python", "JavaScript", "React", "Next.js"].map((tech, index) => (
                   <ScrollReveal key={tech} direction="up" delay={400 + index * 100}>
                     <Badge
                       variant="secondary"

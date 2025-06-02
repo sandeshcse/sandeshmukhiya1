@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react"
+import { ArrowDown, Download, Github, Linkedin, Mail, Facebook } from "lucide-react"
 import Image from "next/image"
 import { AnimatedBackground } from "@/components/animated-background"
 import { ScrollReveal } from "@/components/scroll-reveal"
@@ -82,6 +82,7 @@ export function HeroSection() {
                   variant="outline"
                   size="lg"
                   className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white transform hover:scale-105 transition-all duration-300"
+                  onClick={() => window.open('https://drive.google.com/file/d/1j2WJrqsmAW8HWe9kf1_AO4sdq4tEOv3i/view', '_blank')}
                 >
                   <Download className="mr-2 h-5 w-5" />
                   Download CV
@@ -95,13 +96,7 @@ export function HeroSection() {
                   variant="ghost"
                   size="icon"
                   className="hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
-                >
-                  <Github className="h-6 w-6" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                  onClick={() => window.open('https://www.linkedin.com/in/sandesh-mukhiya-6326612b5/', '_blank')}
                 >
                   <Linkedin className="h-6 w-6" />
                 </Button>
@@ -109,8 +104,25 @@ export function HeroSection() {
                   variant="ghost"
                   size="icon"
                   className="hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                  onClick={() => window.open('https://drive.google.com/file/d/1j2WJrqsmAW8HWe9kf1_AO4sdq4tEOv3i/view', '_blank')}
                 >
-                  <Mail className="h-6 w-6" />
+                  <Download className="h-6 w-6" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                  onClick={() => window.open('https://github.com/sandeshcse', '_blank')}
+                >
+                  <Github className="h-6 w-6" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                  onClick={() => window.open('https://www.facebook.com/sandesh120', '_blank')}
+                >
+                  <Facebook className="h-6 w-6" />
                 </Button>
               </div>
             </ScrollReveal>
@@ -123,7 +135,7 @@ export function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse" />
                 <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-cyan-400 animate-float">
                   <Image
-                    src="/images/hero-image.jpg"
+                    src="/img1.jpg"
                     alt="Sandesh Mukhiya"
                     fill
                     className="object-cover object-center"

@@ -1,48 +1,65 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import Image from "next/image"
 
 export function ProjectsSection() {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description:
-        "A full-featured e-commerce platform with product management, cart functionality, and payment processing using Stripe.",
-      image: "/placeholder.svg?height=200&width=400",
-      technologies: ["Next.js", "TypeScript", "Stripe", "MongoDB"],
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Portfolio Website",
+      description: "A modern portfolio website built to showcase my work and connect with potential clients. Features a responsive design and smooth animations.",
+      image: "/portfolioproject.jpg",
+      technologies: ["HTML", "CSS", "JavaScript", "React"],
+      liveUrl: "https://sandeshcse.github.io/sandeshmukhiya/",
+      githubUrl: "https://github.com/sandeshcse/sandeshmukhiya",
       featured: true,
     },
     {
-      title: "Task Management App",
-      description:
-        "A productivity app for managing tasks, projects, and deadlines with real-time updates and team collaboration.",
-      image: "/placeholder.svg?height=200&width=400",
-      technologies: ["React", "Node.js", "Socket.io", "PostgreSQL"],
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "ShopVista E-commerce",
+      description: "A modern e-commerce platform featuring user authentication, product browsing, and a seamless shopping experience. Includes demo login functionality for easy testing.",
+      image: "/ecommerceproject.jpg",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      liveUrl: "https://sandeshcse.github.io/ecommercestatic/",
+      githubUrl: "https://github.com/sandeshcse/ecommercestatic",
       featured: true,
     },
     {
-      title: "Weather Dashboard",
-      description:
-        "Real-time weather forecast application with location detection and 7-day predictions using OpenWeather API.",
-      image: "/placeholder.svg?height=200&width=400",
-      technologies: ["React", "OpenWeather API", "Chart.js"],
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Weather Website",
+      description: "Stay informed with the latest weather updates, forecasts, and alerts. Our site offers real-time data, accurate predictions, and detailed weather reports for your area.",
+      image: "/weatherproject.jpg",
+      technologies: ["HTML", "CSS", "JavaScript", "Weather API"],
+      liveUrl: "https://sandeshcse.github.io/SandeshWeatherWebsite/",
+      githubUrl: "https://github.com/sandeshcse/SandeshWeatherWebsite",
+      featured: true,
+    },
+    {
+      title: "TO-DO-LIST APP",
+      description: "A simple, user-friendly to-do list app built with HTML, CSS, and JavaScript. Stay organized and boost productivity!",
+      image: "/todoproject.jpg",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      liveUrl: "https://sandeshcse.github.io/To-Do-List-App/",
+      githubUrl: "https://github.com/sandeshcse/To-Do-List-App",
       featured: false,
     },
     {
-      title: "Portfolio Website",
-      description:
-        "A modern, responsive portfolio website built with Next.js and Tailwind CSS featuring smooth animations.",
-      image: "/placeholder.svg?height=200&width=400",
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "#",
+      title: "School Website",
+      description: "A responsive and feature-rich Boarding school website built with HTML, CSS, JS, and Bootstrap.",
+      image: "/schoolproject.jpg",
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      liveUrl: "https://sandeshcse.github.io/schoolwebsite/",
+      githubUrl: "https://github.com/sandeshcse/schoolwebsite",
+      featured: false,
+    },
+    {
+      title: "English & Nepali Typing Practice",
+      description: "A specialized typing practice website for Nepali and English, designed especially for PSC aspirants. Features include language selection, custom text input, font options, and timed practice sessions.",
+      image: "/typingproject.jpg",
+      technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
+      liveUrl: "https://sandeshtyping.vercel.app/",
       githubUrl: "#",
       featured: false,
     },
@@ -72,6 +89,13 @@ export function ProjectsSection() {
               >
                 <CardHeader className="p-0">
                   <div className="relative h-48 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 rounded-t-lg overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
                     <div className="absolute inset-0 bg-black/20" />
                     <div className="absolute bottom-4 left-4">
                       {project.featured && <Badge className="bg-cyan-500 text-black animate-pulse">Featured</Badge>}
@@ -99,6 +123,7 @@ export function ProjectsSection() {
                     <Button
                       size="sm"
                       className="bg-cyan-500 hover:bg-cyan-600 text-black transform hover:scale-105 transition-all duration-300"
+                      onClick={() => window.open(project.liveUrl, '_blank')}
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Live Demo
@@ -107,6 +132,7 @@ export function ProjectsSection() {
                       size="sm"
                       variant="outline"
                       className="border-gray-600 transform hover:scale-105 transition-all duration-300"
+                      onClick={() => window.open(project.githubUrl, '_blank')}
                     >
                       <Github className="w-4 h-4 mr-2" />
                       Code
@@ -124,6 +150,7 @@ export function ProjectsSection() {
               variant="outline"
               size="lg"
               className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transform hover:scale-105 transition-all duration-300"
+              onClick={() => window.open('https://github.com/sandeshcse/', '_blank')}
             >
               <Github className="w-5 h-5 mr-2" />
               View All Projects on GitHub

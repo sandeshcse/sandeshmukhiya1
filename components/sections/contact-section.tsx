@@ -1,8 +1,10 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from "lucide-react"
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, Download, Facebook } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function ContactSection() {
@@ -33,7 +35,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-gray-400">sandesh.mukhiya@example.com</p>
+                      <p className="text-gray-400">cse.sandesh1@gmail.com</p>
                     </div>
                   </div>
 
@@ -43,7 +45,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Phone</h4>
-                      <p className="text-gray-400">+1 (555) 123-4567</p>
+                      <p className="text-gray-400">+977 9821881375 / +91 8864054818</p>
                     </div>
                   </div>
 
@@ -53,7 +55,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Location</h4>
-                      <p className="text-gray-400">San Francisco, CA</p>
+                      <p className="text-gray-400">Simara Bhawanipur, Rautahat, Nepal</p>
                     </div>
                   </div>
                 </CardContent>
@@ -71,6 +73,7 @@ export function ContactSection() {
                       variant="outline"
                       size="icon"
                       className="border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                      onClick={() => window.open('https://github.com/sandeshcse', '_blank')}
                     >
                       <Github className="w-5 h-5" />
                     </Button>
@@ -78,6 +81,7 @@ export function ContactSection() {
                       variant="outline"
                       size="icon"
                       className="border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                      onClick={() => window.open('https://www.linkedin.com/in/sandesh-mukhiya-6326612b5/', '_blank')}
                     >
                       <Linkedin className="w-5 h-5" />
                     </Button>
@@ -85,8 +89,17 @@ export function ContactSection() {
                       variant="outline"
                       size="icon"
                       className="border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                      onClick={() => window.open('https://drive.google.com/file/d/1j2WJrqsmAW8HWe9kf1_AO4sdq4tEOv3i/view', '_blank')}
                     >
-                      <Twitter className="w-5 h-5" />
+                      <Download className="w-5 h-5" />
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                      onClick={() => window.open('https://www.facebook.com/sandesh120', '_blank')}
+                    >
+                      <Facebook className="w-5 h-5" />
                     </Button>
                   </div>
                 </CardContent>

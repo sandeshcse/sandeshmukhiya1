@@ -6,19 +6,19 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 export function ExperienceSection() {
   const experiences = [
     {
-      title: "Senior Software Engineer",
+      title: "Software Engineer",
       company: "Tech Innovations Inc.",
-      location: "San Francisco, CA",
-      period: "2022 - Present",
+      location: "Remote",
+      period: "2025 - Present",
       description:
         "Leading development of cloud-based solutions, mentoring junior developers, and implementing CI/CD pipelines. Improved application performance by 40% and reduced deployment time by 60%.",
-      technologies: ["React", "Node.js", "AWS", "Docker", "TypeScript"],
+      technologies: ["React", "Node.js", "AWS", "Next.js", "TypeScript"],
     },
     {
       title: "Full Stack Developer",
       company: "Digital Solutions Co.",
       location: "Remote",
-      period: "2020 - 2022",
+      period: "2024 - 2025",
       description:
         "Developed and maintained web applications using React, Node.js, and MongoDB. Collaborated with cross-functional teams to deliver high-quality software solutions.",
       technologies: ["React", "Node.js", "MongoDB", "Express.js", "JavaScript"],
@@ -26,8 +26,8 @@ export function ExperienceSection() {
     {
       title: "Frontend Developer",
       company: "WebCraft Studios",
-      location: "New York, NY",
-      period: "2018 - 2020",
+      location: "Remote",
+      period: "2022 - 2023",
       description:
         "Created responsive user interfaces and implemented design systems for various client projects. Worked closely with designers to bring mockups to life.",
       technologies: ["HTML", "CSS", "JavaScript", "Vue.js", "Sass"],

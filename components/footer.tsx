@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp } from "lucide-react"
+import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp, Download, Facebook } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function Footer() {
@@ -16,7 +16,7 @@ export function Footer() {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-orbitron font-bold text-gradient">Sandesh.dev</h3>
+              <h3 className="text-2xl font-orbitron font-bold text-gradient">Sandesh Mukhiya</h3>
               <p className="text-gray-400 max-w-sm">
                 Passionate software engineer creating innovative digital solutions with modern technologies.
               </p>
@@ -25,6 +25,7 @@ export function Footer() {
                   variant="ghost"
                   size="icon"
                   className="hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                  onClick={() => window.open('https://github.com/sandeshcse', '_blank')}
                 >
                   <Github className="h-5 w-5" />
                 </Button>
@@ -32,6 +33,7 @@ export function Footer() {
                   variant="ghost"
                   size="icon"
                   className="hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                  onClick={() => window.open('https://www.linkedin.com/in/sandesh-mukhiya-6326612b5/', '_blank')}
                 >
                   <Linkedin className="h-5 w-5" />
                 </Button>
@@ -39,8 +41,9 @@ export function Footer() {
                   variant="ghost"
                   size="icon"
                   className="hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                  onClick={() => window.open('https://drive.google.com/file/d/1j2WJrqsmAW8HWe9kf1_AO4sdq4tEOv3i/view', '_blank')}
                 >
-                  <Twitter className="h-5 w-5" />
+                  <Download className="h-5 w-5" />
                 </Button>
                 <Button
                   variant="ghost"
@@ -48,6 +51,14 @@ export function Footer() {
                   className="hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
                 >
                   <Mail className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hover:text-cyan-400 transform hover:scale-110 transition-all duration-300"
+                  onClick={() => window.open('https://www.facebook.com/sandesh120', '_blank')}
+                >
+                  <Facebook className="h-5 w-5" />
                 </Button>
               </div>
             </div>
@@ -75,9 +86,9 @@ export function Footer() {
             <div className="space-y-4">
               <h4 className="text-lg font-semibold text-white">Get In Touch</h4>
               <div className="space-y-2 text-gray-400">
-                <p>sandesh.mukhiya@example.com</p>
-                <p>+1 (555) 123-4567</p>
-                <p>San Francisco, CA</p>
+                <p>cse.sandesh1@gmail.com</p>
+                <p>+91 8864054818</p>
+                <p>Rautahat, Nepal</p>
               </div>
             </div>
           </div>

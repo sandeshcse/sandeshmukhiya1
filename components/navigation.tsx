@@ -44,7 +44,7 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Code className="h-8 w-8 text-cyan-400" />
-            <span className="text-xl font-orbitron font-bold text-gradient">Sandesh.dev</span>
+            <span className="text-xl font-orbitron font-bold text-gradient">Sandesh Mukhiya</span>
           </div>
 
           {/* Desktop Navigation */}
