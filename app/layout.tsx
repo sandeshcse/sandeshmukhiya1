@@ -1,5 +1,12 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Toaster } from 'sonner'
+import emailjs from '@emailjs/browser'
+
+// Initialize EmailJS
+if (typeof window !== 'undefined') {
+  emailjs.init('IigbXwOzEfROk5Q8M')
+}
 
 export const metadata: Metadata = {
   title: 'Sandesh Mukhiya',
@@ -18,7 +25,10 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Toaster position="top-right" richColors />
+      </body>
     </html>
   )
 }

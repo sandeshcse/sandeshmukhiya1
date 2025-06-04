@@ -1,13 +1,80 @@
 "use client"
 
+import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, Download, Facebook } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import emailjs from '@emailjs/browser'
+import { EMAIL_CONFIG } from "@/lib/email-config"
+import { toast } from "sonner"
 
 export function ContactSection() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+
+    console.log('Form submitted with data:', formData)
+    console.log('Using EmailJS config:', EMAIL_CONFIG)
+
+    try {
+      const templateParams = {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      }
+      
+      console.log('Sending email with params:', templateParams)
+
+      const response = await emailjs.send(
+        EMAIL_CONFIG.serviceId,
+        EMAIL_CONFIG.templateId,
+        templateParams,
+        EMAIL_CONFIG.publicKey
+      )
+
+      console.log('EmailJS response:', response)
+
+      if (response.status === 200) {
+        toast.success('Message sent successfully!')
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          subject: '',
+          message: ''
+        })
+      } else {
+        throw new Error('Failed to send email')
+      }
+    } catch (error) {
+      console.error('Error sending email:', error)
+      toast.error('Failed to send message. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <section id="contact" className="py-20 px-4">
       <div className="container mx-auto">
@@ -20,7 +87,7 @@ export function ContactSection() {
           </div>
         </ScrollReveal>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Info */}
           <div className="space-y-8">
             <ScrollReveal direction="left" delay={200}>
@@ -113,54 +180,89 @@ export function ContactSection() {
               <CardHeader>
                 <CardTitle className="text-2xl">Send Message</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-gray-300 mb-2 block">First Name</label>
+                      <Input
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        placeholder="John"
+                        required
+                        className="bg-slate-800/50 border-gray-600 focus:border-cyan-400 transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-gray-300 mb-2 block">Last Name</label>
+                      <Input
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        placeholder="Doe"
+                        required
+                        className="bg-slate-800/50 border-gray-600 focus:border-cyan-400 transition-colors"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="text-sm font-medium text-gray-300 mb-2 block">First Name</label>
+                    <label className="text-sm font-medium text-gray-300 mb-2 block">Email</label>
                     <Input
-                      placeholder="John"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="john.doe@example.com"
+                      required
                       className="bg-slate-800/50 border-gray-600 focus:border-cyan-400 transition-colors"
                     />
                   </div>
+
                   <div>
-                    <label className="text-sm font-medium text-gray-300 mb-2 block">Last Name</label>
+                    <label className="text-sm font-medium text-gray-300 mb-2 block">Subject</label>
                     <Input
-                      placeholder="Doe"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Project Discussion"
+                      required
                       className="bg-slate-800/50 border-gray-600 focus:border-cyan-400 transition-colors"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label className="text-sm font-medium text-gray-300 mb-2 block">Email</label>
-                  <Input
-                    type="email"
-                    placeholder="john.doe@example.com"
-                    className="bg-slate-800/50 border-gray-600 focus:border-cyan-400 transition-colors"
-                  />
-                </div>
+                  <div>
+                    <label className="text-sm font-medium text-gray-300 mb-2 block">Message</label>
+                    <Textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell me about your project..."
+                      rows={5}
+                      required
+                      className="bg-slate-800/50 border-gray-600 focus:border-cyan-400 resize-none transition-colors"
+                    />
+                  </div>
 
-                <div>
-                  <label className="text-sm font-medium text-gray-300 mb-2 block">Subject</label>
-                  <Input
-                    placeholder="Project Discussion"
-                    className="bg-slate-800/50 border-gray-600 focus:border-cyan-400 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-gray-300 mb-2 block">Message</label>
-                  <Textarea
-                    placeholder="Tell me about your project..."
-                    rows={5}
-                    className="bg-slate-800/50 border-gray-600 focus:border-cyan-400 resize-none transition-colors"
-                  />
-                </div>
-
-                <Button className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold transform hover:scale-105 transition-all duration-300">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-                </Button>
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold transform hover:scale-105 transition-all duration-300"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                        Sending...
+                      </div>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </ScrollReveal>
